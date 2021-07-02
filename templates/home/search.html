@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}{% block blogactive %} active {% endblock %} {% block title %} Blog {% endblock %}
+{%block body %}
+<div class="container my-5">
+    {% if post|length < 1 %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>wisdomkhan says:</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <div class="container">
+        <h3>Oops! No results found.</h3>
+        <p>Your query <b>{{query}}</b> did not match any documents.<br>Suggestions: <br>
+        <ul>
+            <li>Make sure that all words are spelled correctly.</li>
+            <li>Try different keywords.</li>
+            <li>Try more general keywords</li>
+        </ul>
+        </p>
+    </div>
+    {% else %}
+        <h1>Search results: -</h1>
+        {% for result in post %}
+        <div class="container">
+            <h1>{{result.title}}</h1>
+            <p class="text-muted">by {{result.email}}, {{result.timeStamp}}</p>
+            <p>{{result.text}}</p>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock%}

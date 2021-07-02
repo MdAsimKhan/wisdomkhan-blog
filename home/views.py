@@ -1,6 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 from home.models import Contact
 from django.contrib import messages
+from blog.models import Contribute
 
 
 def home(request):
@@ -21,9 +22,23 @@ def contact(request):
         else:
             newObj = Contact(name=name, email=email, msg=msg)
             newObj.save()
-            messages.success(request, 'Message sent successfully!')
+            messages.success(request, "Message sent successfully!")
     return render(request, 'home/contact.html')
 
 
 def contribute(request):
     return render(request, 'home/contribute.html')
+
+
+def search(request):
+    query = request.GET['query']
+    if len(query) > 50:
+        post = Contribute.objects.none()
+    else:
+        postTitle = Contribute.objects.filter(title__icontains=query)
+        postText = Contribute.objects.filter(text__icontains=query)
+        post = postTitle.union(postText)
+    if post.count() == 0:
+        messages.warning(request, 'Nothing found')
+    param = {'post': post, 'query': query}
+    return render(request, 'home/search.html', param)
