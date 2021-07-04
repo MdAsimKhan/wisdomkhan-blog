@@ -1,0 +1,20 @@
+.myh1-1 {
+            color: purple;
+        }
+
+        .myh1-2 {
+            color: purple;
+        }
+
+        .myh3 {
+            color: orangered;
+        }
+
+        .abt {
+            padding-bottom: 25px;
+        }
+        body{
+            background-image: url('plain.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
