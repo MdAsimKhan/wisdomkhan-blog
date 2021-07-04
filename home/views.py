@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, redirect
 from home.models import Contact
 from django.contrib import messages
+from django.contrib.auth.models import User
 from blog.models import Contribute
 
 
@@ -42,3 +43,28 @@ def search(request):
         messages.warning(request, 'Nothing found')
     param = {'post': post, 'query': query}
     return render(request, 'home/search.html', param)
+
+
+def login(request):
+    return render(request, 'home/login.html')
+
+
+def signup(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        yourname = request.POST['yourname']
+        email = request.POST['email']
+        password = request.POST['password']
+        newuser = User.objects.create_user(username, email, password)
+        newuser.name = yourname
+        newuser.save()
+        messages.success(request, 'Your account has been created successfully')
+        # return redirect('/')
+        return render(request, 'home/signup.html')
+    else:
+        return HttpResponse('Bad request')
+
+
+
+# def signup(request):
+#     return render(request, 'home/signup.html')

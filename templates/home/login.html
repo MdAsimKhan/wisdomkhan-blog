@@ -1,0 +1,95 @@
+{% extends 'basic.html' %} {% block homeactive %} active {% endblock %}{% load static %}
+{% block title %} Login {% endblock %}
+{% block body %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/login.css' %}">
+<link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+/>
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+/>
+<script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+></script>
+{% endblock %}
+<body oncontextmenu="return false" class="snippet-body">
+    <div class="container px-4 py-5 mx-auto">
+      <div class="card card0">
+        <div class="d-flex flex-lg-row flex-column-reverse">
+          <div class="card card1">
+            <div class="row justify-content-center my-auto">
+              <div class="col-md-8 col-10 my-5">
+                <div class="row justify-content-center px-3 mb-3">
+                  <img id="logo" src="https://i.imgur.com/PSXxjNY.png" />
+                </div>
+                <h3 class="mb-5 text-center heading">this is wisdomkhan</h3>
+                <h6 class="msg-info">Please login to your account</h6>
+                <div class="form-group">
+                  <label class="form-control-label text-muted">Username</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Phone no or email id"
+                    class="form-control login"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label text-muted">Password</label>
+                  <input
+                    type="password"
+                    id="psw"
+                    name="psw"
+                    placeholder="Password"
+                    class="form-control login"
+                  />
+                </div>
+                <div class="row justify-content-center my-3 px-3">
+                  <form action="/login" method="post">
+                    <button class="btn-block btn-color">
+                      Login to wisdomkhan
+                    </button>
+                  </form>
+                </div>
+                <div class="row justify-content-center text-center">
+                  <a href="#"
+                    ><small class="text-muted">Forgot Password?</small></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="sm-text mx-auto">
+                Don't have an account?
+<!--              added /signup here. Make a html page for signup same as login-->
+                <form action="/signup" method="post">
+                  {% csrf_token %}
+                  <button class="btn btn-white ml-2">
+                    Create new
+                  </button>
+                </form>
+            </div>
+          </div>
+          <div class="card card2">
+            <div class="my-auto mx-md-5 px-md-5 right text-center">
+              <h3 class="text-white">This is more than just a blog</h3>
+              <small class="text-white"
+                >This is not just any blog with all the type of content which you can imagine. No! This is more than a blog. All the writings on this blog are predominantly the result of personal experiences of wisdomkhan and fellow contributors. This is a blog where you can not only read but also contribute towards making this blog, <b>much more than a blog</b>. You would find poems, short stories, scripts, articles, and other literature stuff. So, click on that <b>Blog</b> tab above and <b><i>Happy Reading!</i></b></small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
+
+{% endblock %}

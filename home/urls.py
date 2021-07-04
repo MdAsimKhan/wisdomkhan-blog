@@ -9,6 +9,9 @@ from django.urls import path,include
 urlpatterns = [
     path('', views.home, name='home'),
     path('search', views.search, name='search'),
+    path('login', views.login, name='login'),
+    path('signup', views.signup, name='signup'),
+    # path('handlesignup', views.handlesignup, name='handlesignup'),
     path('about', views.about, name='about'),
     path('contact', views.contact, name='contact'),
     path('contribute', views.contribute, name='contribute'),
