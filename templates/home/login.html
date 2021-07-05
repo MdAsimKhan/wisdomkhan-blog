@@ -67,8 +67,7 @@
               <p class="sm-text mx-auto">
                 Don't have an account?
 <!--              added /signup here. Make a html page for signup same as login-->
-                <form action="/signup" method="post">
-                  {% csrf_token %}
+                <form action="{% url 'signup' %}" method="get">
                   <button class="btn btn-white ml-2">
                     Create new
                   </button>

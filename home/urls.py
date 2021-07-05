@@ -8,11 +8,11 @@ from django.urls import path,include
 # this path directs it to home app where we have everything what is to be shown at home page
 urlpatterns = [
     path('', views.home, name='home'),
-    path('search', views.search, name='search'),
-    path('login', views.login, name='login'),
-    path('signup', views.signup, name='signup'),
+    path('search/', views.search, name='search'),
+    path('login/', views.login, name='login'),
+    path('signup/', views.signup, name='signup'),
     # path('handlesignup', views.handlesignup, name='handlesignup'),
-    path('about', views.about, name='about'),
-    path('contact', views.contact, name='contact'),
-    path('contribute', views.contribute, name='contribute'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('contribute/', views.contribute, name='contribute'),
 ]
