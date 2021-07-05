@@ -62,8 +62,7 @@ def signup(request):
         # return redirect('/')
         return render(request, 'home/signup.html')
     else:
-        return HttpResponse('Bad request')
-
+        return render(request, 'home/signup.html')
 
 
 # def signup(request):
