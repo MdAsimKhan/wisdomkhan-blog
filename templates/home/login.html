@@ -50,7 +50,8 @@
                   />
                 </div>
                 <div class="row justify-content-center my-3 px-3">
-                  <form action="/login" method="post">
+                  <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
                     <button class="btn-block btn-color">
                       Login to wisdomkhan
                     </button>
@@ -67,7 +68,8 @@
               <p class="sm-text mx-auto">
                 Don't have an account?
 <!--              added /signup here. Make a html page for signup same as login-->
-                <form action="{% url 'signup' %}" method="get">
+                <form action="{% url 'signup' %}" method="post">
+                  {% csrf_token %}
                   <button class="btn btn-white ml-2">
                     Create new
                   </button>

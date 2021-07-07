@@ -1,7 +1,7 @@
 {% extends 'basic.html' %}
 {% block homeactive %} active {% endblock %}
 {% load static %}
-{% block title %} Login {% endblock %}
+{% block title %} Signup {% endblock %}
 {% block body %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'home/login.css' %}">
@@ -34,17 +34,17 @@
                 <h3 class="mb-5 text-center heading">this is wisdomkhan</h3>
                 <h6 class="msg-info">Create new account</h6>
                 <div class="form-group">
-                  <label class="form-control-label text-muted">Username</label>
+                  <label  class="form-control-label text-muted">Username</label>
                   <input
                     type="text"
-                    id="username"
+
                     name="username"
                     placeholder="Your unique username for wisdomkhan"
                     class="form-control login"
                   />
                 </div>
                   <div class="form-group">
-                  <label class="form-control-label text-muted">Your Full Name</label>
+                  <label for="fullname" class="form-control-label text-muted">Your Full Name</label>
                   <input
                     type="text"
                     id="fullname"
@@ -54,7 +54,7 @@
                   />
                 </div>
                   <div class="form-group">
-                  <label class="form-control-label text-muted">Email</label>
+                  <label for="email" class="form-control-label text-muted">Email</label>
                   <input
                     type="text"
                     id="email"
@@ -64,7 +64,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label class="form-control-label text-muted">Password</label>
+                  <label for="password" class="form-control-label text-muted">Password</label>
                   <input
                     type="password"
                     id="password"

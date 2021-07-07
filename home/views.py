@@ -52,18 +52,14 @@ def login(request):
 def signup(request):
     if request.method == 'POST':
         username = request.POST['username']
-        yourname = request.POST['yourname']
+        fullname = request.POST['fullname']
         email = request.POST['email']
         password = request.POST['password']
         newuser = User.objects.create_user(username, email, password)
-        newuser.name = yourname
+        newuser.first_name = fullname
         newuser.save()
         messages.success(request, 'Your account has been created successfully')
-        # return redirect('/')
-        return render(request, 'home/signup.html')
     else:
-        return render(request, 'home/signup.html')
+        return HttpResponse('Bad Request')
+    return render(request, 'home/signup.html')
 
-
-# def signup(request):
-#     return render(request, 'home/signup.html')
